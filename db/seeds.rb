@@ -31,7 +31,6 @@ def random_date(min_days_from_now, max_days_from_now)
 end
 
 # Pets
-
 def random_pet_breed
   ["dog", "cat", "reptile", "rabbit", "rodent", "rock", "amphibian", "giant robot", "fish"].sample
 end
@@ -41,7 +40,9 @@ pets_data = []
   pets_data << {
     name: FFaker::Name.first_name,
     breed: random_pet_breed,
+
     # date_of_birth: random_date(-2000.0, -3.0) #between 2000 and 3 days ago
+
     owner: owners.sample
   }
 end

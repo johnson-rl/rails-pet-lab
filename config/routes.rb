@@ -15,5 +15,4 @@ Rails.application.routes.draw do
 
     get '/signup' => 'owners#new'
     post '/users' => 'owners#create'
-
 end

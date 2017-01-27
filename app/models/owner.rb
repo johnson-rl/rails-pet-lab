@@ -1,6 +1,6 @@
 class Owner < ActiveRecord::Base
   # TODO: add association ot pets
-  has_many :pets
+
   # TODO: add association to appointments (through pets)
 
   # TODO: add validations
@@ -12,5 +12,7 @@ class Owner < ActiveRecord::Base
     # stretch
   end
   has_secure_password
+
+  has_many :pets
 
 end
