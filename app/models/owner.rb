@@ -11,6 +11,7 @@ class Owner < ActiveRecord::Base
   def normalize_phone_number
     # stretch
   end
+  has_secure_password
 
   has_many :pets
 

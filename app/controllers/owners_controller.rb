@@ -1,5 +1,7 @@
 class OwnersController < ApplicationController
 
+
+
   def index
     @owners = Owner.all
   end
@@ -7,12 +9,17 @@ class OwnersController < ApplicationController
   def new
     @owner = Owner.new
   end
-
   def create
-    owner = Owner.create(owner_params)
-    redirect_to owner_path(owner)
+    owner = Owner.new(owner_params)
+    if owner.save
+      session[:owner_id] = owner.id
+      redirect_to '/'
+    else
+      redirect_to '/signup'
+    end
   end
 
+  # before_filter :authorize
   def show
     owner_id = params[:id]
     @owner = Owner.find_by(id: owner_id)
@@ -34,7 +41,7 @@ class OwnersController < ApplicationController
 
   private
   def owner_params
-    params.require(:owner).permit(:first_name, :last_name, :email, :phone)
+    params.require(:owner).permit(:first_name, :last_name, :email, :password, :password_confirmation)
   end
 
 end

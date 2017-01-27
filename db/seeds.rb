@@ -40,8 +40,11 @@ pets_data = []
   pets_data << {
     name: FFaker::Name.first_name,
     breed: random_pet_breed,
-#     # date_of_birth: random_date(-2000.0, -3.0) #between 2000 and 3 days ago
+
+    # date_of_birth: random_date(-2000.0, -3.0) #between 2000 and 3 days ago
+
     owner: owners.sample
   }
 end
 pets = Pet.create(pets_data)
+
